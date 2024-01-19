@@ -31,7 +31,7 @@ data class Location(
     val city: String,
     val coordinates: Coordinates,
     val country: String,
-    val postcode: Int,
+    val postcode: String,
     val state: String,
     val street: Street,
     val timezone: Timezone
@@ -48,15 +48,15 @@ data class Login(
 )
 
 data class Name(
-    val first: String,
-    val last: String,
-    val title: String
+    val first: String?,
+    val last: String?,
+    val title: String?
 )
 
 data class Picture(
-    val large: String,
-    val medium: String,
-    val thumbnail: String
+    val large: String?,
+    val medium: String?,
+    val thumbnail: String?
 )
 
 data class Registered(
@@ -71,7 +71,7 @@ data class Coordinates(
 
 data class Street(
     val name: String,
-    val number: Int
+    val number: String
 )
 
 data class Timezone(
