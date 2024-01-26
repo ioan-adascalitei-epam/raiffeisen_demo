@@ -9,6 +9,7 @@ import com.raiffeisen.app.data.datasource.repository.UserRepositoryImpl
 import com.raiffeisen.app.domain.model.UserModelMapper
 import com.raiffeisen.app.domain.usecase.GetUserListUseCase
 import com.raiffeisen.app.domain.usecase.GetUserListUseCaseImpl
+import com.raiffeisen.app.presentation.users.UserStateMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -52,4 +53,8 @@ object AppModule {
         repository: UserRepository,
         modelMapper: UserModelMapper
     ): GetUserListUseCase = GetUserListUseCaseImpl(repository, modelMapper)
+
+    @Singleton
+    @Provides
+    fun provideUserStateMapper(): UserStateMapper = UserStateMapper
 }

@@ -11,8 +11,8 @@ class GetUserListUseCaseImpl @Inject constructor(
     private val mapper: UserModelMapper
 ) : GetUserListUseCase {
 
-    override suspend fun getUserList(): Result<List<UserModel>> {
-        val result = repository.getUsers()
+    override suspend fun getUserList(page: Int): Result<List<UserModel>> {
+        val result = repository.getUsers(page)
         return if (result is Result.Success) {
             Result.Success(result.info?.results?.map { mapper.toUserModel(it) }.orEmpty())
         } else {

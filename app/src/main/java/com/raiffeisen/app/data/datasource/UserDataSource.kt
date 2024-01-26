@@ -6,5 +6,5 @@ import com.raiffeisen.app.util.Result
 
 interface UserDataSource {
 
-    suspend fun getUsers(): Result<UserResponse>
+    suspend fun getUsers(page: Int): Result<UserResponse>
 }

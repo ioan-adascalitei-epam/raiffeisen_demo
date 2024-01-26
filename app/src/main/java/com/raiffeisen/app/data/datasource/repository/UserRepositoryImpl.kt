@@ -8,5 +8,5 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val remote: UserDataSource
 ) : UserRepository {
-    override suspend fun getUsers(): Result<UserResponse> = remote.getUsers()
+    override suspend fun getUsers(page: Int): Result<UserResponse> = remote.getUsers(page)
 }

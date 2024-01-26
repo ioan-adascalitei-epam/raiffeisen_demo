@@ -5,5 +5,5 @@ import com.raiffeisen.app.util.Result
 
 interface GetUserListUseCase {
 
-    suspend fun getUserList(): Result<List<UserModel>>
+    suspend fun getUserList(page: Int): Result<List<UserModel>>
 }

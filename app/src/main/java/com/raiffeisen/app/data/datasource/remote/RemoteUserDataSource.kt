@@ -9,5 +9,5 @@ import javax.inject.Inject
 class RemoteUserDataSource @Inject constructor(
     private val userApi: UserApi
 ): UserDataSource {
-    override suspend fun getUsers(): Result<UserResponse> = apiCall { userApi.getUsers() }
+    override suspend fun getUsers(page: Int): Result<UserResponse> = apiCall { userApi.getUsers(page) }
 }
