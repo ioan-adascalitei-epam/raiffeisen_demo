@@ -1,13 +1,10 @@
 package com.raiffeisen.app.presentation.users.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -15,7 +12,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -29,7 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
+import coil.compose.AsyncImage
 import com.raiffeisen.app.R
 import com.raiffeisen.app.presentation.ui.theme.RaiffeisenDemoTheme
 import com.raiffeisen.app.presentation.users.UserState
@@ -73,16 +69,16 @@ fun UserItem(
 ) {
     Column(modifier = modifier.padding(8.dp)) {
         Row(modifier = modifier.padding(8.dp)) {
-            Image(
-//                painter = rememberAsyncImagePainter(userState.pictureUrl),
-                painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentDescription = null,
+            AsyncImage(
+                model = userState.pictureUrl,
+                placeholder = painterResource(id = R.drawable.ic_attach_file),
+                error = painterResource(id = R.drawable.ic_star),
+                contentDescription = "The delasign logo",
                 modifier = Modifier
                     .size(80.dp)
                     .padding(8.dp)
                     .clip(CircleShape)
                     .weight(1f)
-
             )
             Column(
                 modifier = modifier
